@@ -4,6 +4,7 @@
  */
 package igu;
 
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,8 +35,9 @@ public class ConsumoKwGU extends javax.swing.JFrame {
     jLabel3 = new javax.swing.JLabel();
     txtTotalAPagar = new javax.swing.JTextField();
     txtKilowats = new javax.swing.JTextField();
-    btnCalcular = new javax.swing.JButton();
     btnSalir = new javax.swing.JButton();
+    btnCalcular = new javax.swing.JButton();
+    btnLimpiar = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,14 +62,6 @@ public class ConsumoKwGU extends javax.swing.JFrame {
       }
     });
 
-    btnCalcular.setFont(new java.awt.Font("Miracode", 0, 18)); // NOI18N
-    btnCalcular.setText("Calcular");
-    btnCalcular.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        btnCalcularActionPerformed(evt);
-      }
-    });
-
     btnSalir.setFont(new java.awt.Font("Miracode", 0, 18)); // NOI18N
     btnSalir.setText("Salir");
     btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -76,10 +70,30 @@ public class ConsumoKwGU extends javax.swing.JFrame {
       }
     });
 
+    btnCalcular.setFont(new java.awt.Font("Miracode", 0, 18)); // NOI18N
+    btnCalcular.setText("Calcular");
+    btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnCalcularActionPerformed(evt);
+      }
+    });
+
+    btnLimpiar.setFont(new java.awt.Font("Miracode", 0, 18)); // NOI18N
+    btnLimpiar.setText("Limpiar");
+    btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnLimpiarActionPerformed(evt);
+      }
+    });
+
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        .addGap(0, 0, Short.MAX_VALUE)
+        .addComponent(btnSalir)
+        .addGap(23, 23, 23))
       .addGroup(jPanel1Layout.createSequentialGroup()
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(jPanel1Layout.createSequentialGroup()
@@ -88,9 +102,6 @@ public class ConsumoKwGU extends javax.swing.JFrame {
           .addGroup(jPanel1Layout.createSequentialGroup()
             .addGap(275, 275, 275)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(btnCalcular))
               .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addComponent(jLabel2)
                 .addComponent(txtTotalAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -99,12 +110,13 @@ public class ConsumoKwGU extends javax.swing.JFrame {
                 .addComponent(txtKilowats, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
           .addGroup(jPanel1Layout.createSequentialGroup()
             .addGap(202, 202, 202)
-            .addComponent(jLabel3)))
+            .addComponent(jLabel3))
+          .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGap(297, 297, 297)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         .addContainerGap(169, Short.MAX_VALUE))
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-        .addGap(0, 0, Short.MAX_VALUE)
-        .addComponent(btnSalir)
-        .addGap(23, 23, 23))
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +133,11 @@ public class ConsumoKwGU extends javax.swing.JFrame {
         .addComponent(jLabel2)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(txtTotalAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(52, 52, 52)
+        .addGap(40, 40, 40)
         .addComponent(btnCalcular)
-        .addContainerGap(193, Short.MAX_VALUE))
+        .addGap(27, 27, 27)
+        .addComponent(btnLimpiar)
+        .addContainerGap(155, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,7 +152,7 @@ public class ConsumoKwGU extends javax.swing.JFrame {
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        .addGap(0, 12, Short.MAX_VALUE)
+        .addGap(0, 4, Short.MAX_VALUE)
         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
 
@@ -153,39 +167,6 @@ public class ConsumoKwGU extends javax.swing.JFrame {
     // TODO add your handling code here:
   }//GEN-LAST:event_txtKilowatsActionPerformed
 
-  private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-     // Declaracion De Variables 
-     double kw, totalPagar;
-     // Asignacion De Las Variables A Las Cajas De Texto
-     kw = Double.parseDouble(txtKilowats.getText());
-     if(kw <= 0 && kw >= 150){
-       //Calculo Del Total A Pagar
-       
-       totalPagar = kw * 0.21;
-       txtTotalAPagar.setText(""+totalPagar);
-     }
-     else if(kw >= 151 && kw <= 300){
-       totalPagar = kw * 1.88;
-       txtTotalAPagar.setText(""+totalPagar);
-     }
-     else if(kw >= 301 && kw <= 600){
-       totalPagar = kw * 3.01;
-       txtTotalAPagar.setText(""+totalPagar);
-     }
-     else if(kw >= 601 && kw <= 1800){
-       totalPagar = kw * 4.16;
-       txtTotalAPagar.setText(""+totalPagar);
-     }
-     else if(kw >= 1801 && kw <= 3400){
-       totalPagar = kw * 187.6;
-       txtTotalAPagar.setText(""+totalPagar);
-     }
-     else if(kw >= 3401 && kw <= 5000){
-       totalPagar = kw * 200;
-       txtTotalAPagar.setText(""+totalPagar);
-     }
-  }//GEN-LAST:event_btnCalcularActionPerformed
-
   private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
     int option = JOptionPane.showConfirmDialog(this, "Estas Seguro De Salir De La Ventana?", "Confirmar Salida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
     
@@ -194,6 +175,59 @@ public class ConsumoKwGU extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_btnSalirActionPerformed
 
+  private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+    // TODO add your handling code here:
+    
+     double kw, totalPagar=0;
+     String input = txtKilowats.getText();
+     // Asignacion De Las Variables A Las Cajas De Texto
+     
+     try{
+     kw = Double.parseDouble(txtKilowats.getText());
+     
+     if(kw <= 0 && kw >= 150){
+       //Calculo Del Total A Pagar
+       totalPagar = kw * 0.21;
+     }
+     else if(kw >= 151 && kw <= 300){
+       totalPagar = kw * 1.88;
+       
+     }
+     else if(kw >= 301 && kw <= 600){
+       totalPagar = kw * 3.01;
+       
+     }
+     else if(kw >= 601 && kw <= 1800){
+       totalPagar = kw * 4.16;
+       
+     }
+     else if(kw >= 1801 && kw <= 3400){
+       totalPagar = kw * 187.6;
+       
+     }
+     else if(kw >= 3401 && kw <= 5000){
+       totalPagar = kw * 200;
+       
+     }else{
+       JOptionPane.showMessageDialog(this, "El valor Ingresado No Corresponde A Las Tarifas");
+       return;
+     }
+     
+     txtTotalAPagar.setText(""+totalPagar);
+     
+      }catch(NumberFormatException ex){
+        JOptionPane.showMessageDialog(this, "Porfavor, Ingrese Un Numero Valido", "Error De Entrada", JOptionPane.ERROR_MESSAGE);
+        txtKilowats.requestFocus();
+      }
+ 
+  }//GEN-LAST:event_btnCalcularActionPerformed
+
+  private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+    // TODO add your handling code here:
+    txtKilowats.setText("");
+    txtTotalAPagar.setText("");
+  }//GEN-LAST:event_btnLimpiarActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -201,6 +235,7 @@ public class ConsumoKwGU extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton btnCalcular;
+  private javax.swing.JButton btnLimpiar;
   private javax.swing.JButton btnSalir;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
